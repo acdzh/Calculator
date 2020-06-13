@@ -81,6 +81,7 @@ export class Scientific extends React.Component {
   initMath = () => {
     Math.sqr = d => d ** 2;
     Math.cube = d => d ** 3;
+    Math.pow10 = d => 10 ** d;
     Math.fact = d => {
       let cache = [1];
       function factorial(n) {
@@ -126,6 +127,7 @@ export class Scientific extends React.Component {
       'neg': '-',
       'ln': 'Math.log',
       'log': 'Math.log10',
+      'pow10': 'Math.pow10',
       '^': '**',
       'cube': 'Math.cube',
       'sqrt': 'Math.sqrt',
@@ -433,7 +435,7 @@ export class Scientific extends React.Component {
             <Button className="sci-num-button" onClick={() => {this.pressNum('9');}}>9</Button>
             <Button className="sci-num-button" onClick={() => {this.twoNumOpre('*')}}>×</Button>
 
-            <Button className="sci-num-button" onClick={() => {this.neg();}}>10^x</Button>
+            <Button className="sci-num-button" onClick={() => {this.oneNumOpre('pow10');}}>10^x</Button>
             <Button className="sci-num-button" onClick={() => {this.pressNum('4');}}>4</Button>
             <Button className="sci-num-button" onClick={() => {this.pressNum('5');}}>5</Button>
             <Button className="sci-num-button" onClick={() => {this.pressNum('6');}}>6</Button>

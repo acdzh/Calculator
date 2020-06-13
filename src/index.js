@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import * as PropTypes from "prop-types";
 import './index.css';
 import App from './App';
 
@@ -9,6 +10,10 @@ import * as serviceWorker from './serviceWorker';
 import { Router } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 const customHistory = createBrowserHistory();
+
+// import createHashHistory from 'history/createHashHistory';
+// const customHistory = createHashHistory();
+
 
 
 let mode = 'light';
