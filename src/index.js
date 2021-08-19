@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as PropTypes from "prop-types";
 import './index.css';
 import App from './App';
 
@@ -16,10 +15,10 @@ const customHistory = createBrowserHistory();
 
 
 
-let mode = 'light';
-if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-  mode = 'dark';
-}
+// let mode = 'light';
+// if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+//   mode = 'dark';
+// }
 
 
 ReactDOM.render(

@@ -165,6 +165,7 @@ export class Scientific extends React.Component {
     console.log(s);
     let result = '';
     try {
+      // eslint-disable-next-line no-eval
       result = eval(s.join('')).toString();
     } catch {
       result = 'error';
