@@ -8,10 +8,10 @@ import NavigationView from "react-uwp/NavigationView";
 import SplitViewCommand from "react-uwp/SplitViewCommand";
 
 import Standard from "./Component/Standard";
-import Scientific from "./Component/Scientific"
-import DateCom from "./Component/Date";
-import Setting from "./Component/Setting"
-import About from './Component/About'
+const Scientific = React.lazy(() => import("./Component/Scientific"));
+const DateCom = React.lazy(() => import("./Component/Date"));
+const Setting = React.lazy(() => import("./Component/Setting"));
+const About = React.lazy(() => import("./Component/About"));
 
 const navigationTopNodes = [
   { link: 'standard', label: 'Standard', icon: 'CalculatorLegacy' },
@@ -41,14 +41,16 @@ export class App extends React.Component {
       focusNavigationNodeIndex={0}
     >
       <div style={{ paddingLeft: '48px', width: '100%', height: '100%'}}>
-        <Switch>
-          <Route exact path="/" component={Standard} />
-          <Route path="/standard" component={Standard} />
-          <Route path="/scientific" component={Scientific} />
-          <Route path="/date" component={DateCom} />
-          <Route path="/setting" component={Setting} />
-          <Route path="/about" component={About} />
-        </Switch>
+        <React.Suspense fallback={<div style={{padding: '20px'}}>Loading...</div>}>
+          <Switch>
+            <Route exact path="/" component={Standard} />
+            <Route path="/standard" component={Standard} />
+            <Route path="/scientific" component={Scientific} />
+            <Route path="/date" component={DateCom} />
+            <Route path="/setting" component={Setting} />
+            <Route path="/about" component={About} />
+          </Switch>
+        </React.Suspense>
       </div>
     </NavigationView>
 
